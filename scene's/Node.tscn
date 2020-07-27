@@ -1,6 +1,39 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Ground art.png" type="Texture" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -12, -28, 11.5, -28.25, 11.5, 27.75, -11.75, 27.75 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -19.8481, -12.5, 19.9019, -12.25, 20.1519, 12, -20.3481, 11.5 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -12.2315, -20.2329, 11.9442, -20.4431, 11.9442, 19.7097, -12.2315, 19.7097 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -12.611, -32.1475, 11.389, -32.1475, 11.639, 31.1025, -12.111, 31.8525 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( -40.3855, -12.8433, 40.2494, -12.8433, 40.5644, 4.16562, 0.876877, 4.4806, 0.876877, 11.0952, -40.7005, 11.4102 )
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( -19.853, -40.2324, 20.397, -40.4824, 20.397, 15.5176, -11.353, 15.7676, -11.853, 40.5176, -19.853, 40.0176 )
+
+[sub_resource type="OccluderPolygon2D" id=7]
+polygon = PoolVector2Array( -40.3761, -19.7949, 40.1397, -19.5846, 39.9295, 3.54002, 24.7934, 3.96046, 24.5831, 20.1477, -8.0016, 20.1477, -8.21183, 5.01159, -31.3365, 4.17069, -30.916, 20.3579, -40.5863, 20.3579 )
+
+[sub_resource type="OccluderPolygon2D" id=8]
+polygon = PoolVector2Array( -32.2343, -36.6082, 32.1281, -36.3434, 32.1281, 35.965, -0.450386, 36.2298, -0.450386, -3.76488, -32.4991, -4.29462 )
+
+[sub_resource type="OccluderPolygon2D" id=9]
+polygon = PoolVector2Array( -16.4678, -20.7273, 15.3161, -20.7273, 15.8459, 20.3269, -7.72719, 19.7971, -7.99205, -4.30565, -15.938, -3.77591 )
+
+[sub_resource type="OccluderPolygon2D" id=10]
+polygon = PoolVector2Array( -20.6988, -12.199, 20.0315, -12.199, 20.3288, 11.5852, -20.024, 12.1142 )
+
+[sub_resource type="OccluderPolygon2D" id=11]
+polygon = PoolVector2Array( -12.3962, -12.8433, 11.5767, -12.8433, 11.9513, 11.1296, -12.7708, 11.5042 )
 
 [node name="Node" type="Node"]
 
@@ -14,6 +47,9 @@ region_rect = Rect2( 40, 167, 25, 57 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
 position = Vector2( 0.25, 0 )
 polygon = PoolVector2Array( 12.2289, 28.446, 12.2138, -28.5379, -12.7399, -28.4495, -12.6872, 28.4337 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
+occluder = SubResource( 1 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 44.5981, -3.8147e-06 )
@@ -29,6 +65,9 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2/StaticBody2D"]
 polygon = PoolVector2Array( 20.5113, -12.4844, -20.4507, -12.5038, -20.4161, 12.4466, 20.4836, 12.5869 )
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2"]
+occluder = SubResource( 2 )
+
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 88.9474, 1 )
 texture = ExtResource( 1 )
@@ -42,6 +81,9 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite3/StaticBody2D"]
 polygon = PoolVector2Array( -12.5154, -20.513, 12.3962, -20.513, 12.4795, 20.3546, -12.4151, 20.3546 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite3"]
+occluder = SubResource( 3 )
 
 [node name="Sprite4" type="Sprite" parent="."]
 position = Vector2( 128.361, 7.89754 )
@@ -57,6 +99,9 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite4/StaticBody2D"]
 polygon = PoolVector2Array( -12.4827, -32.5132, 12.4645, -32.4962, 12.5314, 32.4992, -12.495, 32.546 )
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite4"]
+occluder = SubResource( 4 )
+
 [node name="Sprite5" type="Sprite" parent="."]
 position = Vector2( 192.767, 6.79023 )
 texture = ExtResource( 1 )
@@ -70,6 +115,9 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite5/StaticBody2D"]
 polygon = PoolVector2Array( -40.4961, -12.4788, 40.5528, -12.4927, 40.5227, 4.42425, 0.599258, 4.36857, 0.686829, 12.4872, -40.6077, 12.4282 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite5"]
+occluder = SubResource( 5 )
 
 [node name="Sprite6" type="Sprite" parent="."]
 position = Vector2( 268.853, 9.23238 )
@@ -85,6 +133,9 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite6/StaticBody2D"]
 polygon = PoolVector2Array( -20.017, -40.498, 21.0145, -40.4952, 21.0045, 16.5017, -10.974, 16.4645, -11.0055, 40.5332, -19.9946, 40.4934 )
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite6"]
+occluder = SubResource( 6 )
+
 [node name="Sprite7" type="Sprite" parent="."]
 position = Vector2( 22.575, 67.9653 )
 texture = ExtResource( 1 )
@@ -98,6 +149,9 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite7/StaticBody2D"]
 polygon = PoolVector2Array( -40.4791, -20.5176, 40.4698, -20.4728, 40.5115, 4.47205, 24.4935, 4.49291, 24.5143, 20.4902, -8.50212, 20.4902, -8.44603, 4.46016, -31.4593, 4.47983, -31.4986, 20.5241, -40.515, 20.5044 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite7"]
+occluder = SubResource( 7 )
 
 [node name="Sprite8" type="Sprite" parent="."]
 position = Vector2( 113.344, 85.9857 )
@@ -113,6 +167,9 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite8/StaticBody2D"]
 polygon = PoolVector2Array( -32.5082, -36.5013, 32.5056, -36.4985, 32.5705, 36.5531, -0.541504, 36.5531, -0.487457, -3.51239, -32.4819, -3.51242 )
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite8"]
+occluder = SubResource( 8 )
+
 [node name="Sprite9" type="Sprite" parent="."]
 position = Vector2( 175.323, 85.9857 )
 texture = ExtResource( 1 )
@@ -126,6 +183,9 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite9/StaticBody2D"]
 polygon = PoolVector2Array( -16.5152, -20.4922, 16.4772, -20.4757, 16.4856, 20.4997, -8.48636, 20.48, -8.50603, -3.49786, -16.4987, -3.5077 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite9"]
+occluder = SubResource( 9 )
 
 [node name="Sprite10" type="Sprite" parent="."]
 position = Vector2( 227.649, 83.5108 )
@@ -141,6 +201,9 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite10/StaticBody2D"]
 polygon = PoolVector2Array( -20.4846, -12.5108, 20.4958, -12.4964, 20.4742, 12.4689, -20.5296, 12.5108 )
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite10"]
+occluder = SubResource( 10 )
+
 [node name="Sprite11" type="Sprite" parent="."]
 position = Vector2( 90.4698, 143.615 )
 texture = ExtResource( 1 )
@@ -154,3 +217,6 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite11/StaticBody2D"]
 polygon = PoolVector2Array( -12.4726, -12.4732, 12.4842, -12.5003, 12.4512, 12.5282, -12.4435, 12.4692 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite11"]
+occluder = SubResource( 11 )

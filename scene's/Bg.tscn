@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art/charactersq-export.png" type="Texture" id=1]
+
+[node name="Bg" type="Sprite"]
+modulate = Color( 0.27451, 0, 0.0392157, 1 )
+position = Vector2( -249.361, -97.8686 )
+scale = Vector2( 440, 264 )
+texture = ExtResource( 1 )

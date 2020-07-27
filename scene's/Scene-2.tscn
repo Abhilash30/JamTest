@@ -1,19 +1,30 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://scene's/Player.gd" type="Script" id=1]
+[ext_resource path="res://code/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
 [ext_resource path="res://art/Tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://art/glow.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Bg1.png" type="Texture" id=5]
-[ext_resource path="res://scene's/StaticBody2D.gd" type="Script" id=6]
+[ext_resource path="res://scene's/SceneChangeer.gd" type="Script" id=6]
 [ext_resource path="res://art/CelesteTransition.png" type="Texture" id=7]
 [ext_resource path="res://scene's/DeathByFall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scene's/Bg.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scene's/Particles2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scene's/WorldEnvironment.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "FadeIn"
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 323, -100.5, 276, -100.5, 276, -149.5, 269, -149.5, 269, -141.5, 244, -141.5, 244, -149.5, 237, -149.5, 237, -133.5, 212, -133.5, 212, -141.5, 205, -141.5, 205, -133.5, 180, -133.5, 180, -149.5, 173, -149.5, 173, -125.5, 148, -125.5, 148, -149.5, 141, -149.5, 141, -141.5, 116, -141.5, 116, -149.5, 109, -149.5, 109, -125.5, 84, -125.5, 84, -141.5, 77, -141.5, 77, -133.5, 52, -133.5, 52, -149.5, 45, -149.5, 45, -141.5, 20, -141.5, 20, -149.5, 13, -149.5, 13, -141.5, -12, -141.5, -12, -149.5, -19, -149.5, -19, -125.5, -44, -125.5, -44, -141.5, -51, -141.5, -51, -133.5, -76, -133.5, -76, -149.5, -83, -149.5, -83, -141.5, -108, -141.5, -108, -149.5, -115, -149.5, -115, -117.5, -140, -117.5, -140, -149.5, -147, -149.5, -147, -141.5, -172, -141.5, -172, -149.5, -179, -149.5, -179, -125.5, -204, -125.5, -204, -141.5, -211, -141.5, -211, -133.5, -236, -133.5, -236, -141.5, -243, -141.5, -243, -117.5, -268, -117.5, -268, -125.5, -275, -125.5, -275, -109.5, -291, -109.5, -291, -16.5, -323, -16.5, -323, -186.5, 323, -186.5 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 323, 186.5, 292, 186.5, 292, 42.5, 276, 42.5, 276, -37.5, 228, -37.5, 228, -62.5, 323, -62.5 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -259, 106.5, -283, 106.5, -283, 186.5, -323, 186.5, -323, 33.5, -259, 33.5 )
+
+[sub_resource type="Animation" id=5]
 length = 2.8
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("CanvasLayer/Control/TextureRect:rect_scale:x")
@@ -76,8 +87,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.9 )
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "FadeOut"
+[sub_resource type="Animation" id=6]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Control/Black:color")
@@ -92,18 +102,14 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=7]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 19.5594, 20.642 )
 
-[node name="Scene-1" type="Node2D"]
+[node name="Scene-2" type="Node2D"]
 
-[node name="Bg" type="Sprite" parent="."]
-modulate = Color( 0.27451, 0, 0.0392157, 1 )
-position = Vector2( -249.361, -97.8686 )
-scale = Vector2( 440, 264 )
-texture = ExtResource( 2 )
+[node name="Bg" parent="." instance=ExtResource( 9 )]
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 25, 211.475 )
@@ -129,7 +135,7 @@ position = Vector2( 152, 104 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 54, 24 )
 format = 1
-tile_data = PoolIntArray( 65537, 12, 0, 65542, 7, 0, 131077, 5, 0, 196612, 13, 0, 262147, 13, 0, 393215, 13, 0, 327681, 4, 0, 393218, 13, 0, 393221, 13, 0, 458756, 0, 0, 524291, 13, 0, 589826, 0, 0 )
+tile_data = PoolIntArray( 65542, 7, 0, 131073, 12, 0, 131076, 0, 0, 131078, 0, 0, 262143, 0, 0, 327682, 13, 0, 327685, 12, 0, 393219, 13, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 329.48, 187.003 )
@@ -147,32 +153,43 @@ polygon = PoolVector2Array( 323, 186.5, 292, 186.5, 292, 42.5, 276, 42.5, 276, -
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
 polygon = PoolVector2Array( -259, 106.5, -283, 106.5, -283, 186.5, -323, 186.5, -323, 33.5, -259, 33.5 )
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
+occluder = SubResource( 2 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Sprite"]
+occluder = SubResource( 3 )
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Sprite"]
+occluder = SubResource( 4 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 329.716, 187.88 )
 current = true
 zoom = Vector2( 0.98, 0.98 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="SceneChangeer" type="StaticBody2D" parent="."]
 position = Vector2( 630.435, 104.38 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneChangeer"]
 root_node = NodePath("../..")
 autoplay = "FadeIn"
-anims/FadeIn = SubResource( 2 )
-anims/FadeOut = SubResource( 3 )
+anims/FadeIn = SubResource( 5 )
+anims/FadeOut = SubResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 4 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChangeer"]
+shape = SubResource( 7 )
 disabled = true
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+[node name="Area2D" type="Area2D" parent="SceneChangeer"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
-shape = SubResource( 5 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChangeer/Area2D"]
+shape = SubResource( 8 )
+
+[node name="WorldEnvironment" parent="SceneChangeer" instance=ExtResource( 11 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -192,15 +209,18 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
-margin_left = -687.795
-margin_top = -239.034
-margin_right = 1232.21
-margin_bottom = 840.966
-rect_scale = Vector2( 0.808366, 0.808366 )
+margin_left = -4206.58
+margin_top = -2505.74
+margin_right = -2286.58
+margin_bottom = -1425.74
+rect_scale = Vector2( 5, 5 )
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DeathByFall" parent="." instance=ExtResource( 8 )]
-[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_Area2D_body_entered"]
+
+[node name="Particles2D" parent="." instance=ExtResource( 10 )]
+speed_scale = 2.0
+[connection signal="body_entered" from="SceneChangeer/Area2D" to="SceneChangeer" method="_on_Area2D_body_entered"]
