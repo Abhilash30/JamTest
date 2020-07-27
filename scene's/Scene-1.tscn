@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scene's/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
@@ -9,6 +9,36 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/Black:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/Black:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -77,6 +107,11 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+root_node = NodePath("../..")
+anims/FadeIn = SubResource( 4 )
+anims/FadeOut = SubResource( 5 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 2 )
 disabled = true
@@ -86,15 +121,20 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
 shape = SubResource( 3 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Black" type="ColorRect" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_Area2D_body_entered"]
