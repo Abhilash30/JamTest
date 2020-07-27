@@ -62,13 +62,3 @@ tile_set = ExtResource( 3 )
 cell_size = Vector2( 54, 24 )
 format = 1
 tile_data = PoolIntArray( 65537, 12, 0, 65542, 7, 0, 131077, 5, 0, 196611, 13, 0, 393215, 13, 0, 327681, 4, 0, 393218, 12, 0, 458756, 0, 0, 589826, 0, 0 )
-
-[node name="charactersq-export" type="Sprite" parent="."]
-position = Vector2( -64, 248 )
-scale = Vector2( 3, 1 )
-texture = ExtResource( 2 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="charactersq-export"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="charactersq-export/StaticBody2D"]
-polygon = PoolVector2Array( 8, 8, -8, 8, -8, -8, 8, -8 )
