@@ -1,26 +1,29 @@
 extends KinematicBody2D
 
 
-var motion = Vector2()
-var Speed = 200
-var UP = Vector2(0, -1)
+export (int) var speed = 200
+export (int) var jump_speed = -180
+export (int) var gravity = 200
+
+var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
-func _physics_process(delta):
-	motion.y += 9
+
+func get_input():
+	velocity.x = 0
 	if Input.is_action_pressed("ui_right"):
-		motion.x = Speed
-	elif Input.is_action_pressed("ui_left"):
-		motion.x = -Speed
-	else:
-		motion.x = 0
-	move_and_slide(motion, UP)
+		velocity.x += speed
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= speed
 	
-	if is_on_floor():
-		if Input.is_action_just_pressed("ui_up"):
-			motion.y = -200
-			
-	pass # Replace with function body.
+func _physics_process(delta):
+	get_input()
+	velocity.y += gravity * delta
+	velocity = move_and_slide(velocity, Vector2.UP)
+	if Input.is_action_just_pressed("ui_up"):
+		if is_on_floor():
+			velocity.y = jump_speed
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
