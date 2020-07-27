@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scene's/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/Bg1.png" type="Texture" id=5]
 [ext_resource path="res://scene's/StaticBody2D.gd" type="Script" id=6]
 [ext_resource path="res://art/CelesteTransition.png" type="Texture" id=7]
+[ext_resource path="res://scene's/DeathByFall.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
@@ -105,7 +106,7 @@ scale = Vector2( 440, 264 )
 texture = ExtResource( 2 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( -30, 211.475 )
+position = Vector2( 25, 211.475 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -191,13 +192,15 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
-margin_left = -596.824
-margin_top = -180.433
-margin_right = 1323.18
-margin_bottom = 899.567
-rect_scale = Vector2( 0.7, 0.7 )
+margin_left = -687.795
+margin_top = -239.034
+margin_right = 1232.21
+margin_bottom = 840.966
+rect_scale = Vector2( 0.808366, 0.808366 )
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DeathByFall" parent="." instance=ExtResource( 8 )]
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_Area2D_body_entered"]

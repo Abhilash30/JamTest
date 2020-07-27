@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scene's/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
@@ -6,25 +6,106 @@
 [ext_resource path="res://art/glow.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Bg1.png" type="Texture" id=5]
 [ext_resource path="res://scene's/StaticBody2D.gd" type="Script" id=6]
-[ext_resource path="res://scene's/DeathByFall.gd" type="Script" id=7]
+[ext_resource path="res://scene's/DeathByFall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/CelesteTransition.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "FadeIn"
-length = 1.2
+length = 1.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Control/Black:color")
+tracks/0/path = NodePath("CanvasLayer/Control/TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CanvasLayer/Control/TextureRect:rect_scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CanvasLayer/Control/TextureRect:rect_scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.71, -2.6864 ),
+"times": PoolRealArray( 0.6, 1.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("CanvasLayer/Control/TextureRect:margin_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -851.029, -0.25, 0, 0.25, 0, -2527.12, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("CanvasLayer/Control/TextureRect:margin_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -329.778, -0.25, 0, 0.25, 0, -1420.22, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.5 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("CanvasLayer/Control/TextureRect:margin_right")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1068.97, -0.25, 0, 0.25, 0, -607.12, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.5 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("CanvasLayer/Control/TextureRect:margin_bottom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 750.222, -0.25, 0, 0.25, 0, -340.222, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.5 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Player:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( -22.7724, -0.25, 0, 0.25, 0, 7.93972, -0.25, 0, 0.25, 0, 29.0152, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.6 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Player:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 211.475, -0.25, 0, 0.25, 0, 212.339, -0.25, 0, 0.25, 0, 212.445, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.6 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -48,11 +129,6 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 19.5594, 20.642 )
 
-[sub_resource type="RectangleShape2D" id=6]
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 390.177, 10 )
-
 [node name="Scene-1" type="Node2D"]
 
 [node name="Bg" type="Sprite" parent="."]
@@ -62,7 +138,7 @@ scale = Vector2( 440, 264 )
 texture = ExtResource( 2 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 16.2851, 211.475 )
+position = Vector2( 29.0152, 212.445 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -147,20 +223,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeathByFall" type="StaticBody2D" parent="."]
-position = Vector2( 269.948, 379.437 )
-script = ExtResource( 7 )
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+margin_left = -851.029
+margin_top = -329.778
+margin_right = 1068.97
+margin_bottom = 750.222
+texture = ExtResource( 8 )
 __meta__ = {
-"_edit_group_": true
+"_edit_use_anchors_": false
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathByFall"]
-shape = SubResource( 6 )
-disabled = true
-
-[node name="Area2D" type="Area2D" parent="DeathByFall"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathByFall/Area2D"]
-shape = SubResource( 7 )
+[node name="DeathByFall" parent="." instance=ExtResource( 7 )]
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="DeathByFall/Area2D" to="DeathByFall" method="_on_Area2D_body_entered"]
