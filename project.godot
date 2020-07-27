@@ -21,8 +21,8 @@ config/icon="res://art/icon.png"
 
 [display]
 
-window/size/width=320
-window/size/height=180
+window/size/width=660
+window/size/height=377
 window/size/borderless=true
 window/size/fullscreen=true
 window/stretch/mode="viewport"
