@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scene's/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
@@ -6,73 +6,24 @@
 [ext_resource path="res://art/glow.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Bg1.png" type="Texture" id=5]
 [ext_resource path="res://scene's/StaticBody2D.gd" type="Script" id=6]
-[ext_resource path="res://art/CelesteTransition.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "FadeIn"
-length = 2.8
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("CanvasLayer/Control/TextureRect:rect_scale:x")
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/Black:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0.7, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9, 2.8 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("CanvasLayer/Control/TextureRect:rect_scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0.7, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9, 2.8 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("CanvasLayer/Control/TextureRect:rect_position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( -596.824, -0.25, 0, 0.25, 0, -596.824, -0.25, 0, 0.25, 0, -4206.58, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9, 2.8 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("CanvasLayer/Control/TextureRect:rect_position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( -180.433, -0.25, 0, 0.25, 0, -180.433, -0.25, 0, 0.25, 0, -2505.74, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9, 2.8 )
-}
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("Player:position:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"points": PoolRealArray( -30, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9 )
-}
-tracks/5/type = "bezier"
-tracks/5/path = NodePath("Player:position:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"points": PoolRealArray( 211.475, -0.25, 0, 0.25, 0, 211.475, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9 )
+"times": PoolRealArray( 0, 0.2, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -105,7 +56,7 @@ scale = Vector2( 440, 264 )
 texture = ExtResource( 2 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( -30, 211.475 )
+position = Vector2( 16.2851, 211.475 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -185,18 +136,7 @@ __meta__ = {
 [node name="Black" type="ColorRect" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
-margin_left = -596.824
-margin_top = -180.433
-margin_right = 1323.18
-margin_bottom = 899.567
-rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 7 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
