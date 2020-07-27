@@ -18,9 +18,8 @@ func _on_Area2D_body_entered(body):
 	if "Player" in body.name:
 		
 		yield(get_tree().create_timer(0.1), "timeout")
-		animation_player.play("FadeIn")
+		animation_player.play("FadeOut")
 	  
 		yield(animation_player, "animation_finished")
-		get_tree().change_scene("res://scene's/Node.tscn")
-		animation_player.play_backwards("FadeIn")
+		get_tree().change_scene("res://scene's/Scene-2.tscn")
 	pass # Replace with function body.
