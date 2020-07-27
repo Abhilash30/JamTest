@@ -131,12 +131,6 @@ extents = Vector2( 19.5594, 20.642 )
 
 [node name="Scene-1" type="Node2D"]
 
-[node name="Bg" type="Sprite" parent="."]
-modulate = Color( 0.27451, 0, 0.0392157, 1 )
-position = Vector2( -249.361, -97.8686 )
-scale = Vector2( 440, 264 )
-texture = ExtResource( 2 )
-
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 29.0152, 212.445 )
 script = ExtResource( 1 )
