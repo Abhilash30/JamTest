@@ -10,7 +10,7 @@ func _physics_process(delta):
 	motion.y += 10
 	if Input.is_action_pressed("ui_right"):
 		motion.x = Speed
-	if Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left"):
 		motion.x = -Speed
 	else:
 		motion.x = 0
