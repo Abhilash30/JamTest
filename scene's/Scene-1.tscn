@@ -1,24 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scene's/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
 [ext_resource path="res://art/Tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://art/glow.png" type="Texture" id=4]
 
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/charactersq.png-0981e5e280678b66914183880c42984d.stex"
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
 
 [node name="Scene-1" type="Node2D"]
 
 [node name="Bg" type="Sprite" parent="."]
 modulate = Color( 0.27451, 0, 0.0392157, 1 )
-position = Vector2( 149.003, 76.5329 )
-scale = Vector2( 37.82, 21.8074 )
-texture = SubResource( 1 )
+position = Vector2( -40, -16 )
+scale = Vector2( 440, 264 )
+texture = ExtResource( 2 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 45.9532, 152.29 )
@@ -28,7 +24,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="Player"]
 texture = ExtResource( 4 )
