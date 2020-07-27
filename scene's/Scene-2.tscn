@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scene's/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://art/glow.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Bg1.png" type="Texture" id=5]
 [ext_resource path="res://scene's/StaticBody2D.gd" type="Script" id=6]
+[ext_resource path="res://scene's/DeathByFall.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
@@ -46,6 +47,11 @@ tracks/0/keys = {
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 19.5594, 20.642 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 390.177, 10 )
 
 [node name="Scene-1" type="Node2D"]
 
@@ -136,8 +142,25 @@ __meta__ = {
 [node name="Black" type="ColorRect" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DeathByFall" type="StaticBody2D" parent="."]
+position = Vector2( 269.948, 379.437 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathByFall"]
+shape = SubResource( 6 )
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="DeathByFall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathByFall/Area2D"]
+shape = SubResource( 7 )
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="DeathByFall/Area2D" to="DeathByFall" method="_on_Area2D_body_entered"]
