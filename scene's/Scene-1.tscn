@@ -1,13 +1,47 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scene's/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
 [ext_resource path="res://art/Tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://art/glow.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Bg1.png" type="Texture" id=5]
+[ext_resource path="res://scene's/StaticBody2D.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.4168, 18.9953 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeOut (copy)"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Scene-1" type="Node2D"]
 
@@ -61,3 +95,40 @@ polygon = PoolVector2Array( 323, 186.5, 292, 186.5, 292, 42.5, 276, 42.5, 276, -
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
 scale = Vector2( 1, 1 )
 polygon = PoolVector2Array( -259, 106.5, -283, 106.5, -283, 186.5, -323, 186.5, -323, 33.5, -259, 33.5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 643.372, 105.61 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -13.5081, -19.0101, 15.2635, -19.0101, 15.0651, 18.8891, -14.1034, 18.4923 )
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+anims/FadeOut = SubResource( 3 )
+"anims/FadeOut (copy)" = SubResource( 4 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 661.0
+margin_bottom = 373.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_Area2D_body_entered"]
