@@ -1,16 +1,15 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://code/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/charactersq-export.png" type="Texture" id=2]
 [ext_resource path="res://art/Tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://art/glow.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Bg1.png" type="Texture" id=5]
-[ext_resource path="res://scene's/SceneChangeer.gd" type="Script" id=6]
-[ext_resource path="res://art/CelesteTransition.png" type="Texture" id=7]
-[ext_resource path="res://scene's/DeathByFall.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scene's/Bg.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scene's/Particles2D.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scene's/WorldEnvironment.tscn" type="PackedScene" id=11]
+[ext_resource path="res://art/Bg1.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/SceneChanger-2.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/DeathByFall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Bg.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Particles2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/WorldEnvironment.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.05983, 7.93308 )
@@ -25,66 +24,66 @@ polygon = PoolVector2Array( 323, 186.5, 292, 186.5, 292, 42.5, 276, 42.5, 276, -
 polygon = PoolVector2Array( -259, 106.5, -283, 106.5, -283, 186.5, -323, 186.5, -323, 33.5, -259, 33.5 )
 
 [sub_resource type="Animation" id=5]
-length = 2.8
+length = 1.1
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("CanvasLayer/Control/TextureRect:rect_scale:x")
+tracks/0/path = NodePath("Player:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0.7, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9, 2.8 )
+"points": PoolRealArray( -22.7724, -0.25, 0, 0.25, 0, 29.0152, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.6 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("CanvasLayer/Control/TextureRect:rect_scale:y")
+tracks/1/path = NodePath("Player:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0.7, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9, 2.8 )
+"points": PoolRealArray( 211.475, -0.25, 0, 0.25, 0, 212.445, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.6 )
 }
 tracks/2/type = "bezier"
-tracks/2/path = NodePath("CanvasLayer/Control/TextureRect:rect_position:x")
+tracks/2/path = NodePath("CanvasLayer/Control/Black:color:r")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( -596.824, -0.25, 0, 0.25, 0, -596.824, -0.25, 0, 0.25, 0, -4206.58, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9, 2.8 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 1.1 )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("CanvasLayer/Control/TextureRect:rect_position:y")
+tracks/3/path = NodePath("CanvasLayer/Control/Black:color:g")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( -180.433, -0.25, 0, 0.25, 0, -180.433, -0.25, 0, 0.25, 0, -2505.74, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9, 2.8 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 1.1 )
 }
 tracks/4/type = "bezier"
-tracks/4/path = NodePath("Player:position:x")
+tracks/4/path = NodePath("CanvasLayer/Control/Black:color:b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( -30, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 1.1 )
 }
 tracks/5/type = "bezier"
-tracks/5/path = NodePath("Player:position:y")
+tracks/5/path = NodePath("CanvasLayer/Control/Black:color:a")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 211.475, -0.25, 0, 0.25, 0, 211.475, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.9 )
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 1.1 )
 }
 
 [sub_resource type="Animation" id=6]
@@ -107,12 +106,12 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 19.5594, 20.642 )
 
-[node name="Scene-2" type="Node2D"]
+[node name="Scene-3" type="Node2D"]
 
 [node name="Bg" parent="." instance=ExtResource( 9 )]
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 25, 211.475 )
+position = Vector2( 29.0152, 212.445 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -130,12 +129,14 @@ texture = ExtResource( 4 )
 texture_scale = 2.0
 shadow_enabled = true
 
+[node name="WorldEnvironment" parent="Player" instance=ExtResource( 11 )]
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 152, 104 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 54, 24 )
 format = 1
-tile_data = PoolIntArray( 65542, 7, 0, 131073, 12, 0, 131076, 0, 0, 131078, 0, 0, 262143, 0, 0, 327682, 13, 0, 327685, 12, 0, 393219, 13, 0 )
+tile_data = PoolIntArray( 131077, 4, 0, 196611, 4, 0, 262145, 4, 0, 458752, 13, 0, 589823, 13, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 329.48, 187.003 )
@@ -167,29 +168,27 @@ position = Vector2( 329.716, 187.88 )
 current = true
 zoom = Vector2( 0.98, 0.98 )
 
-[node name="SceneChangeer" type="StaticBody2D" parent="."]
+[node name="SceneChanger-2" type="StaticBody2D" parent="."]
 position = Vector2( 630.435, 104.38 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneChangeer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneChanger-2"]
 root_node = NodePath("../..")
 autoplay = "FadeIn"
 anims/FadeIn = SubResource( 5 )
 anims/FadeOut = SubResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChangeer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChanger-2"]
 shape = SubResource( 7 )
 disabled = true
 
-[node name="Area2D" type="Area2D" parent="SceneChangeer"]
+[node name="Area2D" type="Area2D" parent="SceneChanger-2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChangeer/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChanger-2/Area2D"]
 shape = SubResource( 8 )
-
-[node name="WorldEnvironment" parent="SceneChangeer" instance=ExtResource( 11 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -208,19 +207,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
-margin_left = -4206.58
-margin_top = -2505.74
-margin_right = -2286.58
-margin_bottom = -1425.74
-rect_scale = Vector2( 5, 5 )
-texture = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DeathByFall" parent="." instance=ExtResource( 8 )]
+[node name="DeathByFall" parent="." instance=ExtResource( 7 )]
 
 [node name="Particles2D" parent="." instance=ExtResource( 10 )]
-speed_scale = 2.0
-[connection signal="body_entered" from="SceneChangeer/Area2D" to="SceneChangeer" method="_on_Area2D_body_entered"]
+speed_scale = 2.5
+[connection signal="body_entered" from="SceneChanger-2/Area2D" to="SceneChanger-2" method="_on_Area2D_body_entered"]

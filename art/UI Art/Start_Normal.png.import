@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ground art.png-5042c3916c77ab6eba21784aa2591a5a.stex"
+path="res://.import/Start_Normal.png-9e8521b1959a094bdb5d4c29c345d9bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Ground art.png"
-dest_files=[ "res://.import/Ground art.png-5042c3916c77ab6eba21784aa2591a5a.stex" ]
+source_file="res://art/UI Art/Start_Normal.png"
+dest_files=[ "res://.import/Start_Normal.png-9e8521b1959a094bdb5d4c29c345d9bc.stex" ]
 
 [params]
 

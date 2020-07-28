@@ -11,7 +11,10 @@ scale = 1.5
 scale_random = 0.3
 
 [node name="Particles2D" type="Particles2D"]
-position = Vector2( 414.813, 126.168 )
+position = Vector2( 473.291, 140.557 )
 rotation = 0.97913
 amount = 60
+lifetime = 2.0
+preprocess = 5.0
+randomness = 0.47
 process_material = SubResource( 1 )

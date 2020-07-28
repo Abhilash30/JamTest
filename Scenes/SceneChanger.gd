@@ -21,5 +21,5 @@ func _on_Area2D_body_entered(body):
 		animation_player.play("FadeOut")
 	  
 		yield(animation_player, "animation_finished")
-		get_tree().change_scene("res://scene's/Scene-2.tscn")
+		get_tree().change_scene("res://Scenes/Scene-3.tscn")
 	pass # Replace with function body.
